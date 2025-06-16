@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>City Bus</title>
+    <!-- slider stylesheet -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet/less" type="text/css" href="styles.less" />
+
+    <!-- mask -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+
+    <!-- fonts style -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="css/responsive.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        .form-inline {
+            display: flex;
+            flex-flow: row wrap;
+            align-items: center;
+        }
+        
+        .form-inline label {
+            margin: 5px 10px 5px 0;
+        }
+        
+        .form-inline input {
+            vertical-align: middle;
+            margin: 5px 10px 5px 0;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+        }
+        
+        .form-inline button {
+            padding: 10px 20px;
+            background-color: dodgerblue;
+            border: 1px solid #ddd;
+            color: white;
+            cursor: pointer;
+        }
+        
+        .form-inline button:hover {
+            background-color: royalblue;
+        }
+        
+        @media (max-width: 800px) {
+            .form-inline input {
+                margin: 10px 0;
+            }
+            .form-inline {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+        
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            /*   height:px; */
+            width: 250px;
+            background-color: #F0F0F0;
+            margin: 10px 10px 10px 250px;
+        }
+        
+        .flex-container>div {
+            background-color: red;
+            width: 30px;
+            height: 30px;
+            margin: 10px;
+            border-radius: 20%;
+            text-align: center;
+            /*   line-height: 75px; */
+            font-size: 20px;
+        }
+        
+        .flex-container>div:hover {
+            background-color: yellow;
+            /*   width: 30px;
+  height:30px;
+  margin: 10px;
+  border-radius:20%;
+  text-align: center; */
+            /*   line-height: 75px; */
+            font-size: 20px;
+        }
+        
+        #red {
+            background-color: red;
+        }
+        
+        #green {
+            background-color: green;
+        }
+        
+        #grey {
+            background-color: grey;
+        }
+        
+        #text {
+            color: black;
+        }
+        
+        .container2 {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            width: 250px;
+            margin: 0px 10px 10px 250px;
+        }
+        
+        .container3 {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            /*   border:20px solid 	#F0F0F0; */
+            position: relative;
+            background-color: #F0F0F0;
+            border-radius: 20%;
+            height: 400px;
+            width: 280px;
+            margin: 10px 10px 10px 240px;
+        }
+        
+        .seat {
+            height: 40px;
+            width: 40px;
+            background-color: red;
+            border-radius: 20%;
+            margin: 4px 0px 0px 3px;
+        }
+        
+        .table1,
+        .table2 {
+            margin-top: 0px;
+            /*   border:5px solid black; */
+        }
+        
+        .steering {
+            height: 30px;
+            width: 30px;
+            margin-top: 0px;
+        }
+        
+        .steerinclass {
+            display: flex;
+            justify-content: flex-end;
+            width: 150px;
+            margin-top: -300px;
+            background-color: #F0F0F0;
+            /*   border:3px solid black; */
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hero_area">
+        <!-- header section strats -->
+        <section class="header_section">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg custom_nav-container d-lg-none">
+                    <a class="navbar-brand" href="#">
+                        <div class="logo-box">
+                            <img src="images/logo.png" alt="">
+                            <span>
+                City Bus
+              </span>
+                        </div>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html"> About </a>
+                            </li>
+                            <li class="nav-item">
+                            </li>
+                            <li class="nav-item">
+                            </li>
+                            <li class="nav-item">
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link " href="contact.html">Contact us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="header_container ">
+                    <div class="logo-box">
+                        <img src="images/logo.png" alt="">
+                        <span>
+              City Bus
+            </span>
+                    </div>
+                    <div>
+                        <div class="header_top">
+                            <div class="header_top-contact">
+
+                                <a href="" class="ml-4">
+                                    <div>
+                                        <img src="images/phone.png" alt="" />
+                                    </div>
+                                    <span>
+                    +44xxxx-xxxx
+                  </span>
+                                </a>
+                                <a href="" class="ml-4">
+                                    <div>
+                                        <img src="images/mail.png" alt="" />
+                                    </div>
+                                    <span>
+                    fyusuf.tech@gmail.com
+                  </span>
+                                </a>
+                            </div>
+                            <div class="header_top-social">
+                                <div>
+                                    <a href="">
+                                        <img src="images/fb.png" alt="">
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="">
+                                        <img src="images/twitter.png" alt="">
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="">
+                                        <img src="images/g-plus.png" alt="">
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="">
+                                        <img src="images/linkedin.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header_btm">
+                            <div class="row">
+                                <div class="navBar">
+                                    <a class="current" href="index.html">Home</a>
+                                    <a href="about.html">About</a>
+                                    <a href="contact.html">Contact us</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end header section -->
+
+        <!-- slider section -->
+        <section class="booking_section ">
+            <div class="container">
+                <div class="card card-default" style="margin-top:15%">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col">
+                                <h2 class="heading_style">
+                                    Online Bus Booking
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 about_detail-container">
+                                <div class="about_detail-box">
+                                    <form role="form" id="form1">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="From">From:</label>
+                                                    <select class="form-control" id="from" name="From">
+                                                        <option selected value="0">Kuala Lumpur (All Locations)</option>
+                                                        <option value="1">Johor bahru (All Locations)</option>
+                                                        <option value="2">Malacca (All Locations)</option>
+                                                        <option value="3">Penang (All Locations)</option>
+                                                        <option value="4">Shah Alam (All Locations)</option>
+                                                        <option value="5">Ipoh (All Locations)</option>
+                                                        <option value="6">Kuantan (All Locations)</option>
+                                                        <option value="7">Batu Pahat (All Locations)</option>
+                                                    </select>
+                                                    <label for="Date">Date & Time:</label>
+                                                    <input class="form-control" type="datetime-local" name="Date" id="date" min="2022-06-06T22:22">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="To">To:</label>
+                                                    <select class="form-control" id="to" name="to" placeholder="To">
+                                                        <option value="0">Kuala Lumpur (All Locations)</option>
+                                                        <option selected value="1">Johor bahru (All Locations)</option>
+                                                        <option value="2">Malacca (All Locations)</option>
+                                                        <option value="3">Penang (All Locations)</option>
+                                                        <option value="4">Shah Alam (All Locations)</option>
+                                                        <option value="5">Ipoh (All Locations)</option>
+                                                        <option value="6">Kuantan (All Locations)</option>
+                                                        <option value="7">Batu Pahat (All Locations)</option>
+                                                    </select>
+                                                    <label for="seatclass">Class:</label>
+                                                    <select class="form-control" id="seatclass" name="seatclass">
+                                                        <option value="1">First Class</option>
+                                                        <option value="2">Business</option>
+                                                        <option value="3">Economy</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer"><button data-toggle="modal" data-target="#MOVE2" style="width: 100%;" id="choseat" class="btn btn-primary">Choose seat</button>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!-- end slider section -->
+    </div>
+
+
+
+    <!-- testimonial section -->
+    <section class="client_section layout_padding">
+        <div class="d-flex justify-content-center">
+            <h2 class="heading_style">
+                Testimonial
+            </h2>
+        </div>
+        <div id="carouselExampleIndicator" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicator" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicator" data-slide-to="1"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="client_box c-b-1">
+                                    <div class="client_img">
+                                        <img src="images/client.png" alt="" class="img-fluid">
+                                    </div>
+                                    <div class="client_detail">
+                                        <h5>
+                                            Rock lu
+                                        </h5>
+                                        <p>
+                                            I would be lost without City Bus. City Bus is exactly what our business has been lacking. I'd be lost without City Bus.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="client_box c-b-2">
+                                    <div class="client_img">
+                                        <img src="images/client.png" alt="" class="img-fluid">
+                                    </div>
+                                    <div class="client_detail">
+                                        <h5>
+                                            Lamar U
+                                        </h5>
+                                        <p>
+                                            I would like to personally thank you for your outstanding product. Thank you for making it painless, pleasant and most of all hassle free! I use City Bus often. City Bus is awesome!
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="client_box c-b-1">
+                                    <div class="client_img">
+                                        <img src="images/client.png" alt="" class="img-fluid">
+                                    </div>
+                                    <div class="client_detail">
+                                        <h5>
+                                            Marigold M.
+                                        </h5>
+                                        <p>
+                                            City Bus saved my business. I will let my mum know about this, she could really make use of City Bus! I didn't even need training. I have gotten at least 50 times the value from City Bus.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="client_box c-b-2">
+                                    <div class="client_img">
+                                        <img src="images/client.png" alt="" class="img-fluid">
+                                    </div>
+                                    <div class="client_detail">
+                                        <h5>
+                                            Goddard F.
+                                        </h5>
+                                        <p>
+                                            We've used City Bus for the last five years. I couldn't have asked for more than this. Thank you for making it painless, pleasant and most of all hassle free! City Bus was worth a fortune to my company.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+    <!-- end testimonial section -->
+
+
+    <!-- info section -->
+    <section class="info_section ">
+        <div class="container ">
+            <div class="row  mb-3 pb-4">
+                <div class="col-md-4 info_logo">
+                    <div class="logo-box">
+                        <img src="images/logo-white.png" alt="">
+                        <span>
+              City Bus
+            </span>
+                    </div>
+                    <p>
+                        You can find us on all social media down below!
+                    </p>
+                    <div class="info_social">
+                        <div>
+                            <a href="">
+                                <img src="images/fb.png" alt="">
+                            </a>
+                        </div>
+                        <div>
+                            <a href="">
+                                <img src="images/twitter.png" alt="">
+                            </a>
+                        </div>
+                        <div>
+                            <a href="">
+                                <img src="images/g-plus.png" alt="">
+                            </a>
+                        </div>
+                        <div>
+                            <a href="">
+                                <img src="images/linkedin.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 info_address">
+                    <h5>
+                        Address
+                    </h5>
+                    <p>
+                        UCSI Heights, 1, Jalan Puncak Menara Gading, Taman Connaught, 56000 Cheras, Wilayah Persekutuan Kuala Lumpur
+                    </p>
+                    <p>
+                        +44xxxx-xxxx
+                    </p>
+                    <p>
+                        <a href="mailto:fyusuf.tech@gmail.com">
+              fyusuf.tech@gmail.com
+            </a>
+                    </p>
+                </div>
+                <div class="col-md-4 info_links">
+
+                    <div class="info_nav ">
+                        <nav class="">
+                            <ul>
+                                <h5>
+                                    Links
+                                </h5>
+                                <li>
+                                    <a href="index.html"> Home</a>
+                                </li>
+                                <li>
+                                    <a href="about.html">About</a>
+                                </li>
+                                <li>
+                                    <a href="contact.html">Contact us</a>
+                                </li>
+
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+    <!-- end info section -->
+
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+
+    <!-- end google map js -->
+    <!-- modal section -->
+
+
+    <div id="MOVE2" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 id="seatselect" class="modal-title">First Class Seats</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card card-info">
+                                <div class="card-header">
+                                    <h4 class='card-title'>Seat Price: <label id="classprice">50</label></h4>
+                                    <h4 class='card-title'>Total: RM<label id="price">0</label></h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="flex-container">
+                                        <div id='red' onclick='ar()'>
+                                        </div>
+                                        <div id='green' onclick='ar()'></div>
+                                        <div id='grey' onclick='ar()'></div>
+                                    </div>
+
+                                    <div class="container2">
+                                        <div>
+                                            <label id='text'>Available</label>
+                                        </div>
+                                        <div>
+                                            <label id='text'>Booked</label>
+                                        </div>
+                                        <div>
+                                            <label id='text'>Taken</label>
+                                        </div>
+                                    </div>
+                                    <div class="container3">
+                                        <div class='steerinclass'>
+                                            <img class='steering' src="https://cdn4.iconfinder.com/data/icons/automotive-glyph/64/automotive_vehicle-18-512.png">
+                                        </div>
+                                        <table class='table1'>
+                                            <tr>
+                                                <td>
+                                                    <div onclick="ar()" class="seat"></div>
+                                                </td>
+                                                <td>
+                                                    <div onclick="ar()" class="seat"></div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div onclick="ar()" class="seat"></div>
+                                                </td>
+                                                <td>
+                                                    <div onclick="ar()" class="seat"></div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div onclick="ar()" class="seat"></div>
+                                                </td>
+                                                <td>
+                                                    <div onclick="ar()" class="seat"></div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div style="background-color:gray" onclick="ar()" class="seat"></div>
+                                                </td>
+                                                <td>
+                                                    <div onclick="ar()" class="seat"></div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div onclick="ar()" class="seat"></div>
+                                                </td>
+                                                <td>
+                                                    <div onclick="ar()" class="seat"></div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <table class='table2'>
+                                            <tr>
+                                                <td>
+                                                    <div onclick="ar()" class="seat"></div>
+                                                </td>
+                                                <td>
+                                                    <div onclick="ar()" class="seat"></div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div onclick="ar()" class="seat"></div>
+                                                </td>
+                                                <td>
+                                                    <div onclick="ar()" class="seat"></div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div style="background-color:gray" onclick="ar()" class="seat"></div>
+                                                </td>
+                                                <td>
+                                                    <div style="background-color:gray" onclick="ar()" class="seat"></div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div onclick="ar()" class="seat"></div>
+                                                </td>
+                                                <td>
+                                                    <div onclick="ar()" class="seat"></div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div onclick="ar()" class="seat"></div>
+                                                </td>
+                                                <td>
+                                                    <div onclick="ar()" class="seat"></div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <br>
+                                <button id="sec" data-toggle="modal" data-dismiss="modal" data-target="#MOVE" style="width: 100%" type="button" class="btn btn-success">Payment Section</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="MOVE" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Payment Section</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="card card-info">
+                        <div class="card-header" style="display: flex; justify-content: center">
+                            <img style="width:50%; " src="https://pngimg.com/uploads/credit_card/credit_card_PNG99.png" alt="Card image">
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12 about_detail-container">
+                                    <div class="about_detail-box">
+                                        <form role="form" id="form2">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label for="card-number">Card Number</label>
+                                                        <input id="cardno" class="form-control card-number" name="card-number" type="text" value="">
+                                                        <label for="card-name">Holder Name</label>
+                                                        <input class="form-control card-name" name="card-name" type="text" value="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label for="month">Expiration Date & CVV</label>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <select class="form-control" name="month" id="month-select">
+                                                          <option value="Month" selected disabled>Month</option>
+                                                          <option value="January">January</option>
+                                                          <option value="February">February</option>
+                                                          <option value="March">March</option>
+                                                          <option value="April">April</option>
+                                                          <option value="May">May</option>
+                                                          <option value="June">June</option>
+                                                          <option value="July">July</option>
+                                                          <option value="August">August</option>
+                                                          <option value="September">September</option>
+                                                          <option value="October">October</option>
+                                                          <option value="November">November</option>
+                                                          <option value="December">December</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <select class="form-control" name="year" id="year-select">
+                                                          <option value="Year" selected disabled>Year</option>
+                                                          <option value="2022">2022</option>
+                                                          <option value="2023">2023</option>
+                                                          <option value="2024">2024</option>
+                                                          <option value="2025">2025</option>
+                                                          <option value="2026">2026</option>
+                                                          <option value="2027">2027</option>
+                                                          <option value="2028">2028</option>
+                                                          <option value="2029">2029</option>
+                                                          <option value="2030">2030</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <input class="form-control" placeholder="CVV" name="card-cvv" class="card-cvv" min="3" max="4" type="number">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <h4 class='card-title'>Amount: RM<label id="pricepay">0</label></h4>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <button data-toggle="modal" data-dismiss="modal" data-target="#MOVE2" style="width: 100%;" class="btn btn-primary">Back</button>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <button id="pay" data-toggle="modal" data-dismiss="modal" data-target="#ticket" style="width: 100%" type="button" class="btn btn-success">pay</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="ticket" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Payment Confirmation</h4>
+                    <button id="refresh" type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="card card-info">
+                        <div class="card-body">
+                            <div class="row">
+                                <div id="print" class="col-md-12 about_detail-container">
+                                    <!-- Made by Cory Hughes -->
+                                    <div class="crReciept">
+                                        <h2>Payment Successful</h2>
+                                        <h3>Order Number: <span id="num">XXXXXXXX</span></h3>
+                                        <div class="crItem cf">
+                                            <p class="crAmount">Amount Paid</p>
+                                            <p id="payamout" class="crAmount">RM</p>
+                                        </div>
+                                        <p class="paymentInfo">
+                                            <strong>Ticket Class: </strong><strong id="payclass">class</strong>
+                                        </p>
+                                        <p class="paymentInfo">
+                                            <strong>Number of Seats: </strong><strong id="payseatnum">seats</strong>
+                                        </p>
+                                        <p class="paymentInfo">
+                                            <strong>From: </strong><strong id="payfrom">location a</strong>
+                                        </p>
+                                        <p class="paymentInfo">
+                                            <strong>To: </strong><strong id="payto">location b</strong>
+                                        </p>
+                                        <p class="paymentInfo">
+                                            <strong>Ticket Date & Time: </strong><strong id="paydate"></strong>
+                                        </p>
+                                        <img style="width: 50%" src="https://www.thechecker.net/hubfs/images/barcode.png" alt="">
+                                        <p>Questions about your order?<br>Contact us: <a href="contact.html" target="_blank">Here</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- end modal section -->
+
+
+</body>
